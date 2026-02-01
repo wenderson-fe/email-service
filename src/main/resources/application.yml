@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: email-service
+
+  mail:
+    # Endereço do servidor SMTP (Gmail)
+    host: smtp.gmail.com
+
+    # Porta utilizada para envio de emails com STARTTLS
+    port: 587
+
+    # Usuário utilizado para autenticação SMTP
+    username: ${MAIL_USERNAME}
+
+    # Senha do aplicativo Gmail (não é a senha da conta)
+    # A senha deve ser gerada na mesma conta utilizada no "username"
+    password: ${MAIL_PASSWORD}
+
+    properties:
+      mail:
+        smtp:
+          # Habilita autenticação no servidor SMTP
+          auth: true
+
+          # Habilita comunicação segura via STARTTLS
+          starttls:
+            enable: true
+
+# Email que será usado como remetente (From)
+mail:
+  from: ${MAIL_FROM}
