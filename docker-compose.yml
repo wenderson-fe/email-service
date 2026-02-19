@@ -1,0 +1,16 @@
+services:
+  email-service:
+    image: usuario/email-service:1.0
+    container_name: email-service
+    ports:
+      - 3000:8080
+    environment:
+      # Usuário utilizado para autenticação SMTP
+      - MAIL_USERNAME=${MAIL_USERNAME}
+
+      # Senha do aplicativo Gmail (não é a senha da conta)
+      # A senha deve ser gerada na mesma conta utilizada no "username"
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+
+      # Email que será usado como remetente (From)
+      - MAIL_FROM=${MAIL_FROM}
